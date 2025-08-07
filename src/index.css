@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark Portfolio Theme */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 5% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Electric Blue Primary */
+    --primary: 194 100% 60%;
+    --primary-foreground: 240 10% 3.9%;
+
+    /* Deep Card Secondary */
+    --secondary: 240 5% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 5% 15%;
+    --muted-foreground: 240 5% 64.9%;
+
+    /* Cyan Accent */
+    --accent: 180 100% 70%;
+    --accent-foreground: 240 10% 3.9%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5% 15%;
+    --input: 240 5% 15%;
+    --ring: 194 100% 60%;
+
+    /* Portfolio-specific colors */
+    --hero-gradient: linear-gradient(135deg, hsl(194 100% 60%) 0%, hsl(270 95% 65%) 100%);
+    --card-gradient: linear-gradient(145deg, hsl(240 5% 15%) 0%, hsl(240 10% 8%) 100%);
+    --text-gradient: linear-gradient(135deg, hsl(194 100% 60%) 0%, hsl(180 100% 70%) 100%);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Shadows */
+    --glow-primary: 0 0 40px hsl(194 100% 60% / 0.3);
+    --glow-accent: 0 0 30px hsl(180 100% 70% / 0.2);
+    --shadow-card: 0 8px 32px hsl(240 10% 3.9% / 0.8);
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Light mode disabled - portfolio uses dark theme only */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background: radial-gradient(ellipse at top, hsl(240 10% 8%) 0%, hsl(240 10% 3.9%) 50%);
+    min-height: 100vh;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-secondary;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-full;
+  }
+}
+
+@layer components {
+  /* Gradient text utility */
+  .text-gradient {
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+
+  /* Card with gradient background */
+  .card-gradient {
+    background: var(--card-gradient);
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Hero gradient background */
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+
+  /* Smooth animations */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  /* Tab animation */
+  .tab-enter {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: tab-enter 0.4s ease-out forwards;
+  }
+
+  @keyframes tab-enter {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Hover scale effect */
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  /* Floating animation */
+  .floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+
+  @keyframes floating {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+}
