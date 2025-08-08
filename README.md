@@ -1,22 +1,14 @@
-# Welcome to your Lovable project
+# Welcome to a modern, responsive personal portfolio built with React + TypeScript + Vite + Tailwind.
+Shows About, Resume, Projects and Contact; contact form uses EmailJS (no backend).
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/a72c4202-8c67-4f77-bb1b-46c0df05a09f
-
+**URL**: https://vinay-personal-portfolio.vercel.app/
 ## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/a72c4202-8c67-4f77-bb1b-46c0df05a09f) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
 
 **Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+If you want to work locally using your own IDE, you can clone this repo and push changes. 
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -60,14 +52,49 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
+- Contact form (EmailJS) — secure setup & usage
+Goal: send contact form directly to your inbox using EmailJS without a server.
+
+1) Create EmailJS account & template
+Sign up at https://www.emailjs.com.
+
+Add an Email Service (Gmail/SMTP).
+
+Create an Email Template with placeholders:
+
+{{name}}
+
+{{email}}
+
+{{message}}
+
+Publish the template and note:
+
+Service ID (e.g. service_abc123)
+
+Template ID (e.g. template_xyz)
+
+Public Key (API key shown in dashboard)
+
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/a72c4202-8c67-4f77-bb1b-46c0df05a09f) and click on Share -> Publish.
+Build & Production — Vercel (recommended)
+Push code to GitHub.
 
-## Can I connect a custom domain to my Lovable project?
+On https://vercel.com, import the GitHub repo.
 
-Yes, you can!
+Set:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Framework preset: Vite
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Build command: npm run build
+
+Output directory: dist
+
+Set environment variables in Vercel dashboard (Environment Variables > Add):
+
+VITE_EMAILJS_SERVICE_ID
+
+VITE_EMAILJS_TEMPLATE_ID
+
+VITE_EMAILJS_PUBLIC_KEY
